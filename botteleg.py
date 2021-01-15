@@ -20,7 +20,9 @@ def answer(call):
         markup_reply1 = types.ReplyKeyboardMarkup(resize_keyboard=True , row_width= 2)
         btn_coronapl = types.KeyboardButton ('Koronawirus')
         btn_savepl = types.KeyboardButton ('Chroń siebie')
-        markup_reply1.add(btn_coronapl, btn_savepl)
+        btn_pl = types.KeyboardButton ('Polska')
+        btn_ua = types.KeyboardButton ('Ukraina')
+        markup_reply1.add(btn_coronapl, btn_savepl, btn_pl, btn_ua)
         bot.send_message(call.message.chat.id, "Aby dowiedzieć się danych o koronawirusie 🦠,\nnapisz nazwę kraju 🌉",
         reply_markup= markup_reply1)
         
@@ -28,14 +30,18 @@ def answer(call):
         markup_reply2 = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width= 2)
         btn_coronaua = types.KeyboardButton ('Коронавірус')
         btn_saveua = types.KeyboardButton ('Захисти себе')
-        markup_reply2.add(btn_coronaua, btn_saveua)
+        btn_pl2 = types.KeyboardButton ('Польща')
+        btn_ua2 = types.KeyboardButton ('Україна')
+        markup_reply2.add(btn_coronaua, btn_saveua, btn_pl2, btn_ua2)
         bot.send_message(call.message.chat.id, "Щоб дізнатися дані про коронавірус 🦠,\nнапишіть назву країни 🌉",
         reply_markup= markup_reply2)
     elif call.data == 'us':
         markup_reply3 = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width= 2)
         btn_coronaus = types.KeyboardButton ('Coronavirus')
         btn_saveus = types.KeyboardButton ('Protect yourself')
-        markup_reply3.add(btn_coronaus, btn_saveus)
+        btn_pl3 = types.KeyboardButton ('Poland')
+        btn_ua3 = types.KeyboardButton ('Ukraine')
+        markup_reply3.add(btn_coronaus, btn_saveus,btn_pl3, btn_ua3)
         bot.send_message(call.message.chat.id, "To find out about the coronavirus data 🦠,\nwrite the name of the country 🌉",
         reply_markup= markup_reply3)
 
@@ -45,75 +51,8 @@ def mess(message):
     
     get_message_bot = message.text.strip().lower()
     
-
-    #usa
-    if get_message_bot == "stany zjednoczone":
-        track_usa =  track.country_info_by_name('usa')
-        final_message = f"<u>Dane krajowe:</u>\n<b> 👫 Populacja: </b>{track_usa['population']:,}\n"\
-            f"<b> 🤧 Zakażonych: </b>{track_usa['new cases']:,}\n<b> ☠️ Zgonów: </b>"\
-                f"{track_usa['new deaths']:,}\n<b> 💪 Osoby, króte wyzdrowiały: </b>{track_usa['new recoveries']:,}"
-    elif get_message_bot == "usa":
-        track_usa =  track.country_info_by_name('usa')
-        final_message = f"<u>National data:</u>\n<b> 👫 Population: </b>{track_usa['population']:,}\n"\
-            f"<b> 🤧 Infected: </b>{track_usa['new cases']:,}\n<b> ☠️ Deaths: </b>"\
-                f"{track_usa['new deaths']:,}\n<b> 💪 People who have recovered: </b>{track_usa['new recoveries']:,}"
-    elif get_message_bot == "сша":
-        track_usa =  track.country_info_by_name('usa')
-        final_message = f"<u>Національні дані:</u>\n<b> 👫 Населення: </b>{track_usa['population']:,}\n"\
-            f"<b> 🤧 Заражених: </b>{track_usa['new cases']:,}\n<b> ☠️ Смертей: </b>"\
-                f"{track_usa['new deaths']:,}\n<b> 💪 Люди, які одужали: </b>{track_usa['new recoveries']:,}"
-    #ukraina
-    elif get_message_bot == "ukraina":
-        track_ukraine =  track.country_info_by_name('ukraine')
-        final_message = f"<u>Dane krajowe:</u>\n<b> 👫 Populacja: </b>{track_ukraine['population']:,}\n"\
-            f"<b> 🤧 Zakażonych: </b>{track_ukraine['new cases']:,}\n<b> ☠️ Zgonów: </b>"\
-                f"{track_ukraine['new deaths']:,}\n<b> 💪 Osoby, króte wyzdrowiały: </b>{track_ukraine['new recoveries']:,}"
-    elif get_message_bot == "ukraine":
-        track_ukraine =  track.country_info_by_name('ukraine')
-        final_message = f"<u>National data:</u>\n<b> 👫 Population: </b>{track_ukraine['population']:,}\n"\
-            f"<b> 🤧 Infected: </b>{track_ukraine['new cases']:,}\n<b> ☠️ Deaths: </b>"\
-                f"{track_ukraine['new deaths']:,}\n<b> 💪 People who have recovered: </b>{track_ukraine['new recoveries']:,}"
-    elif get_message_bot == "україна":
-        track_ukraine =  track.country_info_by_name('ukraine')
-        final_message = f"<b><u>Національні дані:</u></b>\n<b> 👫 Населення: </b>{track_ukraine['population']:,}\n"\
-            f"<b>За весь час:\n</b> 🤧Заражених: {track_ukraine['total cases']:,}\n ☠️ Смертей: "\
-                f"{track_ukraine['total deaths']:,}\n 💪 Люди, які одужали: {track_ukraine['total recoveries']:,}\n"\
-                    f"<b>За сьогодні:\n</b> 🤧 Заражених: {track_ukraine['new cases']:,}\n ☠️ Смертей: "\
-                        f"{track_ukraine['new deaths']:,}\n 💪 Люди, які одужали: {track_ukraine['new recoveries']:,}"
-    #polska
-    elif get_message_bot == "polska":
-        track_poland =  track.country_info_by_name('poland')
-        final_message = f"<u>Dane krajowe:</u>\n<b> 👫 Populacja: </b>{track_poland['population']:,}\n"\
-            f"<b> 🤧 Zakażonych: </b>{track_poland['new cases']:,}\n<b> ☠️ Zgonów: </b>"\
-                f"{track_poland['new deaths']:,}\n<b> 💪 Osoby, króte wyzdrowiały: </b>{track_poland['new recoveries']:,}"
-    elif get_message_bot == "poland":
-        track_poland =  track.country_info_by_name('poland')
-        final_message = f"<u>National data:</u>\n<b> 👫 Population: </b>{track_poland['population']:,}\n"\
-            f"<b> 🤧 Infected: </b>{track_poland['new cases']:,}\n<b> ☠️ Deaths: </b>"\
-                f"{track_poland['new deaths']:,}\n<b> 💪 People who have recovered: </b>{track_poland['new recoveries']:,}"
-    elif get_message_bot == "польща":
-        track_poland =  track.country_info_by_name('poland')
-        final_message = f"<u>Національні дані:</u>\n<b> 👫 Населення: </b>{track_poland['population']:,}\n"\
-            f"<b> 🤧 Заражених: </b>{track_poland['new cases']:,}\n<b> ☠️ Смертей: </b>"\
-                f"{track_poland['new deaths']:,}\n<b> 💪 Люди, які одужали: </b>{track_poland['new recoveries']:,}"
-    #włochy
-    elif get_message_bot == "włochy":
-        track_italy =  track.country_info_by_name('italy')
-        final_message = f"<u>Dane krajowe:</u>\n<b> 👫 Populacja: </b>{track_italy['population']:,}\n"\
-            f"<b> 🤧 Zakażonych: </b>{track_italy['new cases']:,}\n<b> ☠️ Zgonów: </b>"\
-                f"{track_italy['new deaths']:,}\n<b> 💪 Osoby, króte wyzdrowiały: </b>{track_italy['new recoveries']:,}"
-    elif get_message_bot == "italy":
-        track_italy =  track.country_info_by_name('italy')
-        final_message = f"<u>National data:</u>\n<b> 👫 Population: </b>{track_italy['population']:,}\n"\
-            f"<b> 🤧 Infected: </b>{track_italy['new cases']:,}\n<b> ☠️ Deaths: </b>"\
-                f"{track_italy['new deaths']:,}\n<b> 💪 People who have recovered: </b>{track_italy['new recoveries']:,}"
-    elif get_message_bot == "італія":
-        track_italy =  track.country_info_by_name('italy')
-        final_message = f"<u>Національні дані:</u>\n<b> 👫 Населення: </b>{track_italy['population']:,}\n"\
-            f"<b> 🤧 Заражених: </b>{track_italy['new cases']:,}\n<b> ☠️ Смертей: </b>"\
-                f"{track_italy['new deaths']:,}\n<b> 💪 Люди, які одужали: </b>{track_italy['new recoveries']:,}"
     #dane z całego świata
-    elif  get_message_bot == "świat":
+    if  get_message_bot == "świat":
         cases = track.total_cases()
         deaths = track.total_deaths()
         rec = track.total_recoveries()
@@ -210,9 +149,233 @@ def mess(message):
                                     f"▪️ Stay home if you feel unwell.\n"\
                                         f"▪️ If you have a fever, cough and difficulty breathing, seek medical attention.\n"\
                                             f"<i>Calling in advance allows your healthcare provider to quickly direct you to the right health facility. This protects you, and prevents the spread of viruses and other infections.</i>"
-
+    #usa
+    elif get_message_bot == "stany zjednoczone":
+        track_stats =  track.country_info_by_name('usa')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "usa":
+        track_stats =  track.country_info_by_name('usa')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "сша":
+        track_stats =  track.country_info_by_name('usa')
+        final_message = build_ua_country_text(track_stats)
+    #ukraina
+    elif get_message_bot == "ukraina":
+        track_stats =  track.country_info_by_name('ukraine')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "poland":
+        track_stats =  track.country_info_by_name('ukraine')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "україна":
+        track_stats =  track.country_info_by_name('ukraine')
+        final_message = build_ua_country_text(track_stats)
+    #polska
+    elif get_message_bot == "polska":
+        track_stats =  track.country_info_by_name('poland')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "poland":
+        track_stats =  track.country_info_by_name('poland')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "польща":
+        track_stats =  track.country_info_by_name('poland')
+        final_message = build_ua_country_text(track_stats)
+    #włochy
+    elif get_message_bot == "włochy":
+        track_stats =  track.country_info_by_name('italy')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "italy":
+        track_stats =  track.country_info_by_name('italy')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "італія":
+        track_stats =  track.country_info_by_name('italy')
+        final_message = build_ua_country_text(track_stats)
+    #Kazachstan
+    elif get_message_bot == "kazachstan":
+        track_stats =  track.country_info_by_name('kazakhstan')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "kazakhstan":
+        track_stats =  track.country_info_by_name('kazakhstan')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "казахстан":
+        track_stats =  track.country_info_by_name('kazakhstan')
+        final_message = build_ua_country_text(track_stats)
+    #Niemcy
+    elif get_message_bot == "niemcy":
+        track_stats =  track.country_info_by_name('germany')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "germany":
+        track_stats =  track.country_info_by_name('germany')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "німеччина":
+        track_stats =  track.country_info_by_name('germany')
+        final_message = build_ua_country_text(track_stats)
+    #Czechy
+    elif get_message_bot == "czechy":
+        track_stats =  track.country_info_by_name('czechia')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "czechia":
+        track_stats =  track.country_info_by_name('czechia')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "чехія":
+        track_stats =  track.country_info_by_name('czechia')
+        final_message = build_ua_country_text(track_stats)
+    #Węgry
+    elif get_message_bot == "węgry":
+        track_stats =  track.country_info_by_name('hungary')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "hungary":
+        track_stats =  track.country_info_by_name('hungary')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "угорщина":
+        track_stats =  track.country_info_by_name('hungary')
+        final_message = build_ua_country_text(track_stats)
+    #Białoruś
+    elif get_message_bot == "białoruś":
+        track_stats =  track.country_info_by_name('belarus')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "belarus":
+        track_stats =  track.country_info_by_name('belarus')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "білорусь":
+        track_stats =  track.country_info_by_name('belarus')
+        final_message = build_ua_country_text(track_stats)
+    #Rosja
+    elif get_message_bot == "rosja":
+        track_stats =  track.country_info_by_name('russia')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "russia":
+        track_stats =  track.country_info_by_name('russia')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "росія":
+        track_stats =  track.country_info_by_name('russia')
+        final_message = build_ua_country_text(track_stats)
+    #Dania
+    elif get_message_bot == "hiszdaniapania":
+        track_stats =  track.country_info_by_name('denmark')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "denmark":
+        track_stats =  track.country_info_by_name('denmark')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "данія":
+        track_stats =  track.country_info_by_name('denmark')
+        final_message = build_ua_country_text(track_stats)
+    #Francja
+    elif get_message_bot == "francja":
+        track_stats =  track.country_info_by_name('france')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "france":
+        track_stats =  track.country_info_by_name('france')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "франція":
+        track_stats =  track.country_info_by_name('france')
+        final_message = build_ua_country_text(track_stats)
+    #Hiszpania
+    elif get_message_bot == "hiszpania":
+        track_stats =  track.country_info_by_name('spain')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "spain":
+        track_stats =  track.country_info_by_name('spain')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "іспанія":
+        track_stats =  track.country_info_by_name('spain')
+        final_message = build_ua_country_text(track_stats)
+    #Słowacja
+    elif get_message_bot == "słowacja":
+        track_stats =  track.country_info_by_name('slovakia')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "slovakia":
+        track_stats =  track.country_info_by_name('slovakia')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "словаччина":
+        track_stats =  track.country_info_by_name('slovakia')
+        final_message = build_ua_country_text(track_stats)
+    #Chorwacja
+    elif get_message_bot == "chorwacja":
+        track_stats =  track.country_info_by_name('croatia')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "croatia":
+        track_stats =  track.country_info_by_name('croatia')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "хорватія":
+        track_stats =  track.country_info_by_name('croatia')
+        final_message = build_ua_country_text(track_stats)
+    #Słowenia
+    elif get_message_bot == "słowenia":
+        track_stats =  track.country_info_by_name('slovenia')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "slovenia":
+        track_stats =  track.country_info_by_name('slovenia')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "словенія":
+        track_stats =  track.country_info_by_name('slovenia')
+        final_message = build_ua_country_text(track_stats)
+    #Grecja
+    elif get_message_bot == "grecja":
+        track_stats =  track.country_info_by_name('greece')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "greece":
+        track_stats =  track.country_info_by_name('greece')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "греція":
+        track_stats =  track.country_info_by_name('greece')
+        final_message = build_ua_country_text(track_stats)
+    #Turcja
+    elif get_message_bot == "turcja":
+        track_stats =  track.country_info_by_name('turkey')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "turkey":
+        track_stats =  track.country_info_by_name('turkey')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "туреччина":
+        track_stats =  track.country_info_by_name('turkey')
+        final_message = build_ua_country_text(track_stats)
+    #Rumunia
+    elif get_message_bot == "rumunia":
+        track_stats =  track.country_info_by_name('romania')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "romania":
+        track_stats =  track.country_info_by_name('romania')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "румунія":
+        track_stats =  track.country_info_by_name('romania')
+        final_message = build_ua_country_text(track_stats)
+        #Bułgaria
+    elif get_message_bot == "bułgaria":
+        track_stats =  track.country_info_by_name('bulgaria')
+        final_message = build_pl_country_text(track_stats)
+    elif get_message_bot == "bulgaria":
+        track_stats =  track.country_info_by_name('bulgaria')
+        final_message = build_en_country_text(track_stats)
+    elif get_message_bot == "болгарія":
+        track_stats =  track.country_info_by_name('bulgaria')
+        final_message = build_ua_country_text(track_stats)
     else:
         final_message = f"Proszę napisać nazwę kraju\n Jeśli chcesz dowiedzieć się dane z całego świata , napisz 'świat'"
     bot.send_message(message.chat.id, final_message, parse_mode='HTML')
+     #texter
+def build_en_country_text(country_stats):
+    final_message = f"<b><u>National data:</u></b>\n<b> 👫 Population: </b>{country_stats['population']:,}\n"
+    final_message += f"<b>For all time:</b>\n 🤧 Infected: {country_stats['total cases']:,}\n ☠️ Deaths: "
+    final_message += f"{country_stats['total deaths']:,}\n 💪 People who have recovered: {country_stats['total recoveries']:,}\n"
+    final_message +=  f"<b>Today: </b>\n 🤧 Infected: {country_stats['new cases']:,}\n ☠️ Deaths: "
+    final_message +=  f"{country_stats['new deaths']:,}\n 💪 People who have recovered: {country_stats['new recoveries']:,}"
+    return final_message
+
+def build_ua_country_text(country_stats):
+    final_message = f"<b><u>Національні дані:</u></b>\n<b> 👫 Населення: </b>{country_stats['population']:,}\n"
+    final_message += f"<b>За весь час:</b>\n 🤧 Заражених: {country_stats['total cases']:,}\n ☠️ Смертей: "
+    final_message += f"{country_stats['total deaths']:,}\n 💪 Люди, які одужали: {country_stats['total recoveries']:,}\n"
+    final_message +=  f"<b>За сьогодні: </b>\n 🤧 Заражених: {country_stats['new cases']:,}\n ☠️ Смертей: "
+    final_message +=  f"{country_stats['new deaths']:,}\n 💪 Люди, які одужали: {country_stats['new recoveries']:,}"
+    return final_message
+
+def build_pl_country_text(country_stats):
+    final_message = f"<b><u>Dane krajowe:</u></b>\n<b> 👫 Populacja: </b>{country_stats['population']:,}\n"
+    final_message += f"<b>Przez cały czas:</b>\n 🤧 Zakażonych: {country_stats['total cases']:,}\n ☠️ Zgonów: "
+    final_message += f"{country_stats['total deaths']:,}\n 💪  Osoby, króte wyzdrowiały: {country_stats['total recoveries']:,}\n"
+    final_message +=  f"<b>Dzisiaj: </b>\n 🤧 Zakażonych: {country_stats['new cases']:,}\n ☠️ Zgonów: "
+    final_message +=  f"{country_stats['new deaths']:,}\n 💪 Osoby, króte wyzdrowiały: {country_stats['new recoveries']:,}"
+    return final_message
+    
 
 bot.polling(none_stop=True, interval = 0)
