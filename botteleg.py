@@ -22,7 +22,8 @@ def answer(call):
         btn_savepl = types.KeyboardButton ('Chroń siebie')
         btn_pl = types.KeyboardButton ('Polska')
         btn_ua = types.KeyboardButton ('Ukraina')
-        markup_reply1.add(btn_coronapl, btn_savepl, btn_pl, btn_ua)
+        btn_khnow =types.KeyboardButton('Dowiedzieć się więcej')
+        markup_reply1.add(btn_coronapl, btn_savepl, btn_pl, btn_ua, btn_khnow)
         bot.send_message(call.message.chat.id, "Aby dowiedzieć się danych o koronawirusie 🦠,\nnapisz nazwę kraju 🌉",
         reply_markup= markup_reply1)
         
@@ -32,7 +33,8 @@ def answer(call):
         btn_saveua = types.KeyboardButton ('Захисти себе')
         btn_pl2 = types.KeyboardButton ('Польща')
         btn_ua2 = types.KeyboardButton ('Україна')
-        markup_reply2.add(btn_coronaua, btn_saveua, btn_pl2, btn_ua2)
+        btn_khnow2 = types.KeyboardButton('Дізнатися більше')
+        markup_reply2.add(btn_coronaua, btn_saveua, btn_pl2, btn_ua2, btn_khnow2)
         bot.send_message(call.message.chat.id, "Щоб дізнатися дані про коронавірус 🦠,\nнапишіть назву країни 🌉",
         reply_markup= markup_reply2)
     elif call.data == 'us':
@@ -40,11 +42,12 @@ def answer(call):
         btn_coronaus = types.KeyboardButton ('Coronavirus')
         btn_saveus = types.KeyboardButton ('Protect yourself')
         btn_pl3 = types.KeyboardButton ('Poland')
-        btn_ua3 = types.KeyboardButton ('Ukraine')
+        btn_ua3 = types.InlineKeyboardButton ('Ukraine')
         markup_reply3.add(btn_coronaus, btn_saveus,btn_pl3, btn_ua3)
         bot.send_message(call.message.chat.id, "To find out about the coronavirus data 🦠,\nwrite the name of the country 🌉",
         reply_markup= markup_reply3)
 
+    
 @bot.message_handler(content_types=['text'])
 def mess(message):
     final_message = ""
@@ -71,6 +74,13 @@ def mess(message):
         rec = track.total_recoveries()
 
         final_message = f"<i>Дані з усього світу 🌍:</i>\n<b> 🤧 Заражених: </b>{cases:,}\n<b> ☠️ Смертей: </b>{deaths:,}\n<b> 💪 Люди, які одужали: </b>{rec:,}"
+    #Dowiedzieć się więcej
+    elif get_message_bot == "dowiedzieć się więcej":
+        final_message = f"<b>🔎 Bardziej szczegółowe zapoznanie się z aktualnościami dotyczącymi koronawirusa można znaleźć tutaj:</b> \n https://www.gov.pl/web/koronawirus"
+
+    elif get_message_bot == "дізнатися більше":
+        final_message = f"<b>🔎 Для більш детальним ознайомлення з актуальностями про коронавірус можна дізнатися тут:</b> \n https://moz.gov.ua/koronavirus-2019-ncov"
+   
     #Info o koronawirusie
     elif get_message_bot == 'koronawirus':
         final_message = f"COVID-19  🦠  wpływa na różnych ludzi na różne sposoby. U większości zarażonych choroba rozwija się od łagodnej do umiarkowanej i wyzdrowieje bez hospitalizacji.\n"\
