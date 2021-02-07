@@ -182,7 +182,6 @@ def answer(call):
             reply_markup=markup_reply3,
         )
 
-
 @bot.message_handler(content_types=["text"])
 def mess(message):
     """"This function is started at the incoming message and"
@@ -252,6 +251,7 @@ def mess(message):
             "▪️ bół głowy\n"
             "▪️ utrata smaku lub zapachu\n"
             "▪️ wysypka na skórze lub przebarwienie palców rąk i nóg\n")
+
     elif get_message_bot == "коронавірус":
         final_message = (
             "COVID-19 🦠 по-різному впливає на різних людей."
