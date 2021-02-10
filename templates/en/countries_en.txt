@@ -1,0 +1,23 @@
+To find out about the coronavirus data 🦠,
+write the name of the country 🌉
+Available countries:
+Ukraine
+Usa
+Poland
+Italy
+Kazakhstan
+Germany
+Czech republic
+Hungary
+Belarus
+Russia
+Denmark
+France
+Spain
+Slovakia
+Croatia
+Slovenia
+Greece
+Turkey
+Romania
+Bulgaria

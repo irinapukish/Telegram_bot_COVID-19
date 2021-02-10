@@ -1,0 +1,10 @@
+<b><u>Dane krajowe:</u></b>
+<b> 👫 Populacja: </b>$population
+<b>Przez cały czas:</b>
+🤧 Zakażonych: $total_cases
+☠️ Zgonów: $total_deaths
+💪 Osoby, króte wyzdrowiały: $total_recoveries
+<b>Dzisiaj: </b>
+🤧 Zakażonych: $new_cases
+☠️ Zgonów: $new_deaths
+💪 Osoby, króte wyzdrowiały: $new_recoveries

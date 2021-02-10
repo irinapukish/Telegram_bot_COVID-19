@@ -1,0 +1,10 @@
+<b><u>National data:</u></b>
+<b> 👫 Population: </b>$population
+<b>For all time:</b>
+🤧 Infected: $total_cases
+☠️ Deaths: $total_deaths
+💪 People who have recovered: $total_recoveries
+<b>Today: </b>
+🤧 Infected: $new_cases
+☠️ Deaths: $new_deaths
+💪 People who have recovered: $new_recoveries
